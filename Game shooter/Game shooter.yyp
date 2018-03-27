@@ -365,14 +365,6 @@
                 "resourcePath": "rooms\\r1\\r1.yy",
                 "resourceType": "GMRoom"
             }
-        },
-        {
-            "Key": "fa668e70-5188-4c5e-b69e-f2bcd44cf63f",
-            "Value": {
-                "id": "05ea7b44-8652-48d6-baf4-f13dccdd3992",
-                "resourcePath": "rooms\\r3\\r3.yy",
-                "resourceType": "GMRoom"
-            }
         }
     ],
     "script_order": [
