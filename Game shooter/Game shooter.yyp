@@ -103,6 +103,14 @@
             }
         },
         {
+            "Key": "4dd2a30d-ddba-41f3-81ee-247063816232",
+            "Value": {
+                "id": "7b709298-97f7-4cd1-9ecf-e681eed22c07",
+                "resourcePath": "scripts\\SlideTransition\\SlideTransition.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4eb5ff1f-d2cd-4047-9254-412709654593",
             "Value": {
                 "id": "23f72855-c3ea-4308-87d0-8844ccf87afc",
@@ -279,10 +287,26 @@
             }
         },
         {
+            "Key": "bc4fc3c7-f159-4d2b-bf13-9e2e5685e4bb",
+            "Value": {
+                "id": "ca6669fa-80c4-41e5-b2a4-a7727aaae7ca",
+                "resourcePath": "sprites\\spr_trigger\\spr_trigger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c1049bc6-730b-4a58-b0aa-c0e28f5c61c2",
             "Value": {
                 "id": "fbcccc4b-4e30-447d-a728-860886e46c40",
                 "resourcePath": "objects\\obj_camera\\obj_camera.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c5e0098d-6b9c-4aaf-9e5e-4706050971c5",
+            "Value": {
+                "id": "2d081c1a-f47a-4e89-8e14-cae7a07e5222",
+                "resourcePath": "objects\\obj_levelend\\obj_levelend.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -376,7 +400,7 @@
         }
     ],
     "script_order": [
-        
+        "4dd2a30d-ddba-41f3-81ee-247063816232"
     ],
     "tutorial": ""
 }

@@ -1,8 +1,19 @@
 /// @description Step command
 // Get player imput
+
+if (hascontrol)
+{
 key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
 key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
 key_jump = keyboard_check(vk_space);
+
+}
+else
+{
+	key_right = 0;
+	key_left = 0;
+	key_jump = 0;
+}
 // calculate movement
 var move = key_right - key_left;
 
