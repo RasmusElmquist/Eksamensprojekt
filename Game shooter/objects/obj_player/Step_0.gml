@@ -23,7 +23,7 @@ var move = key_right - key_left;
 hsp = move * walksp; 
 
 vsp = vsp + grv;
-// Her gør jeg så når man trykker på ens tast "Space" så kopper man.
+// Her gør jeg så når man trykker på ens tast "Space" så hopper man.
 if (place_meeting(x,y+1,obj_wall)) && (key_jump)
 {
 vsp = -7;
