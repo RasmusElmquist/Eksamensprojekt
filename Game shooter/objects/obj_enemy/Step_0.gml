@@ -1,6 +1,6 @@
 vsp = vsp + grv;
 
-//Horizontel collision 
+
 if (place_meeting(x+hsp,y,obj_wall))
 {
     while (!place_meeting(x+sign(hsp),y,obj_wall))
@@ -11,7 +11,7 @@ if (place_meeting(x+hsp,y,obj_wall))
 }	
 x = x + hsp;
 
-// Vertical movement
+
 if (place_meeting(x,y+vsp,obj_wall))
 {
     while (!place_meeting(x,y+sign(vsp),obj_wall))
@@ -22,7 +22,7 @@ if (place_meeting(x,y+vsp,obj_wall))
 }	
 y = y + vsp;
 
-//Animation
+
 if (!place_meeting(x,y+1,obj_wall)) 
 {
    sprite_index = spr_enemyJ;

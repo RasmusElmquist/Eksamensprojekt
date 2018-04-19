@@ -1,5 +1,5 @@
 /// @description Gun begin steps
-
+//Det jeg gør her er 
 x = obj_player.x;
 y = obj_player.y+10;
 
