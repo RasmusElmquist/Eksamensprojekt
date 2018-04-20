@@ -1,2 +1,2 @@
-//Her er vores restart med en Slide transition der er bundet til tasten R i scriptet
+//Dette er en restart funktion der genstarter spillet når knappen R trykkes.
 SlideTransition(TRANS_MODE.RESTART)
