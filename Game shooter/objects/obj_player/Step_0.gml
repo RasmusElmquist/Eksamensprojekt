@@ -1,5 +1,6 @@
 /* I dette if statement bestemmes der hvilke knapper 
 der skal kospondere til den retning spilleren bevæger sig i.
+Hvad if statementet gør,er at det stiller gamemaker et spørgsmål, og hvis hvad der står inden for paranteserne er opfyldt køres statementet ellers kører else statementet.
 keyboard_check er til at benytte A & D tasterne
 vk_space fortæller koden at spacebar er til at hoppe
 det samme med vk_right er højre piletast
@@ -27,20 +28,22 @@ grav integeren er tyngdekræften.
 herefter beregner den så den lodrette bevægelse vsp og addere den til vsp integeren. 
 */
 
-/*I denne del bliver "var" funktionen brugt, og hvad "var" gør er at den tager en af variablerne (fx key_left)  og kun køre den i loop midlertidigt.
-Gunden til at jeg har sat dem op key_right - key_left er fordi, Når man trykker key_right, vil den give 1 og key_left vil give 0.
+/*
+I denne del bliver "var" funktionen brugt, og hvad "var" gør er at den tager en af variablerne (fx key_left)  og kun køre den i loop midlertidigt.
+Grunden til at jeg har sat dem op key_right - key_left er fordi, Når man trykker key_right, vil den give 1 og key_left vil give 0.
 Der ved vil move give = 1. Hvis man trykker key_left vil den give -1 og key_right vil give 0, så vil move give = -1. Hvis du vælger at trykke,
 key_right og key_left så vil det give 1 - 1 = 0 så move = 0 og det vil resultere i at du ikke bevæger dig. 
 */
 var move = key_right - key_left;
-/*Det der bliver gjort her er at indsætter vores gåhastighed altså (walksp = walkspeed) Vi gav variablen walksp = 4, og vi ved at når vi trykker
-key_right eller key_left får vi 1 eller -1. Jeg ganger vores move med variablen walksp. Så 1*4 = 4 pixels til højre og -1*4= -4 pixels til venstre.
+/*
+Det der bliver gjort her er at indsætter vores  bevægelses hastighed altså (walksp = walkspeed) Vi gav variablen walksp = 4, og vi ved at når vi trykker
+key_right eller key_left får vi 1 eller -1. Jeg multiplicere vores move med variablen walksp. Så 1*4 = 4 pixels til højre og -1*4= -4 pixels til venstre.
 */
-hsp = move * walksp; 
-//Det der sker her, er at vi kan bevæge os med tyndekraften (grv) "Så vi kan falde"
-vsp = vsp + grv;
+hsp = move * walksp;
 
-// Her gør jeg så når man trykker på ens tast "Space" så hopper man.
+//Det der sker her, er at vi kan bevæge os med tyndekraften (grv) "Så vi kan falde"
+
+vsp = vsp + grv;
 
 /* 
 Her bestemmes der hvor højt spilleren skal hoppe når space trykkes.
@@ -55,26 +58,22 @@ vsp = -7;
 
 
 /*
-Her bruger vi et statement der hedder if. Hvad if gør,er at det stiller gamemaker et spørgsmål, og det sprøgsmål er hvad vi putter inde for de her to ().
-Hvis, det vi putter ind i vores () er sandt. Så vil den gøre præcis det kode vi skriver under indefor {}.Hvis det er sådan at det ikke er sandt, vil den springe det over,
-og gå vidre til det, der kommer efter.
-Hvad placemeeting gør, er at den tjekker om der er en kollision altså et sammenstød mellem vores obj_player og obj_wall.
+Hvad placemeeting gør, er at den tjekker om der er en kollision altså et sammenstød mellem obj_player og obj_wall.
 */
 if (place_meeting(x+hsp,y,obj_wall))
 {
 	/*
 	Så det vi gør her er at vi laver en placemeeting for hvis der ikke er en kollision. 
-	While bliver benyttet her, som er næsten det samme som if. Vi stiller et spørgsmål inde for nogle (), hvis det vi skriver er sandt vil den gøre alt vi gør inde for vores {}.
-	Forskellen mellem et While statement og et if statement, er at et while statement vil fortsætte med at gøre de ting der står indefor vores {} i et loop indtil det ikke længere er sandt.
-	En forskæl på et while statemnt er at vi har SIGN funktionen involveret. Det SIGN gør er at den gir enten 1 eller -1, afhængiet af den variabel vi gir den er positiv eller negativ (hsp)
+	While bliver benyttet her, som er næsten det samme som if. Vi stiller et spørgsmål inde for nogle (), hvis det vi skriver er sandt vil den gøre alt vi gør inde for {}.
+	Forskellen mellem et While statement og et if statement, er at et while statement vil fortsætte med at gøre de ting der står indefor {} i et loop indtil det ikke længere er sandt.
+	En forskel på et while statemnt er at vi har SIGN funktionen involveret. Det SIGN gør er at den gir enten 1 eller -1, afhængiet af den variabel vi gir den er positiv eller negativ (hsp)
 	Eksempel: Hvis vi gik til højre ville hsp være 4, så SIGN hsp vil være 1, og venstre ville SIGN hsp være -1.
 	*/
     while (!place_meeting(x+sign(hsp),y,obj_wall))
 	{
 		/*
-		Det der sker her er at x bliver lagt sammen med SIGN(hsp) som er 1 eller -1.
-		Det, det her gør et at så længe der ikke er en kollison med 1 pixel i retningen vi bevæger os. 
-		Så vil det indefor disse {} bliver loopet.
+		Det der sker her er at x bliver adderet med SIGN(hsp) som er 1 eller -1.
+		Det, det her gør et at så længe der ikke er en kollison med 1 pixel i retningenen vi bevæger os, så bliver funktionen loopet.
 		*/
 	    x = x + sign(hsp);
 	}
@@ -88,8 +87,7 @@ x = x + hsp;
 
 
 /*
-Her laver ja den vertikale kollision. Den Vertikale er meget ens med den horizontale kollision, da man faktisk bare skal ændre på hsp til vsp (vertikale hastighed) samt ændre de x+, og placer det efter y+.
-
+Her laver jeg den vandrette kollision. Den vandrette er meget ens med den lodrette kollision, da man faktisk bare skal ændre på hsp til vsp (vandrette hastighed) samt ændre de x+, og placer det efter y+.
 */
 if (place_meeting(x,y+vsp,obj_wall))
 {

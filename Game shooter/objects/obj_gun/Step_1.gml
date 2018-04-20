@@ -1,7 +1,8 @@
-/// @description Gun begin steps
-//Det jeg gør her er at jeg placere våbnet på vores obj_player med x og y
-// Grunden til jeg har lagt +10 på Y er fordi vi vil ikke have et "delay" på våbnet når vi bevæger os.
-//Hvis jeg ikke havde +10 på vores Y ville våbnet have en forsinkelse når vi bevæger os. Sammentidig vil våbnet også ikke være i hovedt på ham.
+/*
+Det jeg gør her er at jeg placere våbnet på vores obj_player med x og y
+Grunden til jeg har lagt +10 på Y er fordi vi vil ikke have et "delay" på våbnet når vi bevæger os.
+Hvis jeg ikke havde +10 på vores Y ville våbnet have en forsinkelse når vi bevæger os. Sammentidig vil våbnet også ikke være i hovedt på ham.
+*/
 x = obj_player.x;
 y = obj_player.y+10;
 // //Hvad denne funktion gør er "hvor er vores mus på skærmen" samt gør den så vores pistol peger mod vores mus.
