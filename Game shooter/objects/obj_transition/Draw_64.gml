@@ -1,5 +1,7 @@
-/// @DRAW BLACK BARS
-
+/*
+Dette tegner de sorte streger fra bunden og toppen af skærmen
+som skaber transistion følelsen. 
+*/
 if (mode != TRANS_MODE.OFF)	
 {
 	draw_set_color(c_black);

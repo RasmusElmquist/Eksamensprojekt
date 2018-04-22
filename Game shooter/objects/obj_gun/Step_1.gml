@@ -4,7 +4,7 @@ vi har så valgt at + med 1 på y da våbnet skulle sidde lidt lavere fra origo.
 */
 x = obj_player.x;
 y = obj_player.y+1;
-// //Hvad denne funktion gør er "hvor er vores mus på skærmen" samt gør den så vores pistol peger mod vores mus.
+//Hvad denne funktion gør er "hvor er vores mus på skærmen" samt gør den så vores pistol peger mod vores mus.
 image_angle = point_direction(x,y,mouse_x,mouse_y);
 
 firingdelay = firingdelay - 1; 
