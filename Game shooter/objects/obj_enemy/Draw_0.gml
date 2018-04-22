@@ -2,7 +2,7 @@
 
 //denne funktion gør at den tegner objektet selvom at der ikke givet nogen kode.
 draw_self();
-// denne tjekker om hvorvidt at flash er større end nul
+// dette if statement tjekker om hvorvidt at flash er større end nul
 if (flash > 0)
 {
 	flash--;
@@ -11,6 +11,6 @@ if (flash > 0)
 	
 	//denne funktion gør at den tegner objektet selvom at der ikke givet nogen kode.
 	draw_self();
-	//Funktionen nulstiller den givede nuace som du har givet din spirte.
+	//Funktionen nulstiller den givede nuance som du har givet din spirte.
 	shader_reset();
 }
