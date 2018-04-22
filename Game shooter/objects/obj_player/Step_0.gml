@@ -185,10 +185,9 @@ horisontale vægt.Hvis man sætter den til 1, ville der ikke være en ændring. 
 Det sjove er at hvis vi så lændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
 Så det vi gør er at vi siger at if (HVIS) hsp ikke er = 0,  til image_xscale = = sign(hsp), fordi sign giver tilbage et 1 hvis den er positiv og 0 hvis den er negativ. 
 Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre..
-=======
+
 /*Hvis vi nu satte vores image_speed til 1 ville han kikke den anden vej. Detter er bare hvilken vej player peger. Så det vi har gjort her
 Er at hvis vores HSP er vegativ vil det betyde vi går til vestre og hvis den er positiv bevæger vi os til højre.
->>>>>>> 7bcd94354291bf3242fbbec5b1a1a5309ff86e7f
 */
 if (hsp != 0) image_xscale = sign(hsp);
 
