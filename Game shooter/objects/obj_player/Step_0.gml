@@ -102,32 +102,12 @@ if (place_meeting(x,y+vsp,obj_wall))
 }	
 y = y + vsp;
 
-
 /*
 I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
 spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
 med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kunne tjekke om vi var på jorden så vi kunne hoppe.
-
-=======
-/*
-I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
-spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
-med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kunne tjekke om vi var på jorden så vi kunne hoppe.
-
-=======
-/*
-Her kommer et punkt der hedder Animation.
-Hvad vi gør her er, at vi har lavet en masse sprites. Spr_Player,PlayerJ,PlayerR Alle 3 sprites er en forskellig bevægelse. 
-Sprite_index betyder at vi tager en spesefik Sprite. Så det man ser med at vi laver et IF til et sign også VSP er at vi tager sprite 0 og 1, og sætter dem,
-til at den ved hvis vi falder skal de bruge falde sprite index 1 og hvis vi hopper skal den bruge den der ligner vi lige har sat af. 
-For Player of PlayerR Laver vi et ELSE det betyder at hvis if (!place_meeting(x,y+1,obj_wall)) Ikke passer så passer det under.
 */
 
-/*
-Det vi kommer til her er noget som hedder Animation.
-if statementet bliver benyttet igen her da der bliver arbejdet med kollisions igen, 
->>>>>>> 7bcd94354291bf3242fbbec5b1a1a5309ff86e7f
-*/ 
 if (!place_meeting(x,y+1,obj_wall)) 
 {
 	/*
@@ -182,14 +162,10 @@ else
 Det sidste vi mangler under animation er, så vi kigger den rigtige vej. Man kan jo ikke have at hvis man løber til højre, at man så kigger til venstre. 
 Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et spørgsmål. Vi bruger også noget der hedder, image_xscale der beslutter vores 
 horisontale vægt.Hvis man sætter den til 1, ville der ikke være en ændring. Men hvis vi ændre vores xscale til 2. Vil vores stickfigur blive tyk lige pludslig.
-Det sjove er at hvis vi så lændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
+Det sjove er at hvis vi så ændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
 Så det vi gør er at vi siger at if (HVIS) hsp ikke er = 0,  til image_xscale = = sign(hsp), fordi sign giver tilbage et 1 hvis den er positiv og 0 hvis den er negativ. 
-Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre..
-
-/*Hvis vi nu satte vores image_speed til 1 ville han kikke den anden vej. Detter er bare hvilken vej player peger. Så det vi har gjort her
-Er at hvis vores HSP er vegativ vil det betyde vi går til vestre og hvis den er positiv bevæger vi os til højre.
+Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre.
 */
 if (hsp != 0) image_xscale = sign(hsp);
-
 
 
