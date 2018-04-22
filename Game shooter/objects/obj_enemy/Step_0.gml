@@ -43,6 +43,8 @@ else
 	    sprite_index = spr_enemyR;
 	}	
 }
+// "Image_xscale" Denne værdi angiver den vandrette skalring, som er blevet andvendt på dit sprite
+// Som er blevet tildelt til spirtes nuværende placering.
 
 if (hsp != 0) image_xscale = sign(hsp);
 
