@@ -21,7 +21,7 @@ else
 }
 
 /* 
-i denne del udregnes der hvilke bevægelser spilleren fortager sig. her bruger jeg tre nye integers som jeg har defineret i create koden.
+i denne del udregnes der hvilke bevægelser spilleren fortager sig. her bruger vi tre nye integers som vi har defineret i create koden.
 hsp integeren er til vandrette bevægelser.
 vsp integeren er til lodrette bevægelser.
 grav integeren er tyngdekræften.
@@ -30,14 +30,14 @@ herefter beregner den så den lodrette bevægelse vsp og addere den til vsp inte
 
 /*
 I denne del bliver "var" funktionen brugt, og hvad "var" gør er at den tager en af variablerne (fx key_left)  og kun køre den i loop midlertidigt.
-Grunden til at jeg har sat dem op key_right - key_left er fordi, Når man trykker key_right, vil den give 1 og key_left vil give 0.
+Grunden til at vi har sat dem op key_right - key_left er fordi, Når man trykker key_right, vil den give 1 og key_left vil give 0.
 Der ved vil move give = 1. Hvis man trykker key_left vil den give -1 og key_right vil give 0, så vil move give = -1. Hvis du vælger at trykke,
 key_right og key_left så vil det give 1 - 1 = 0 så move = 0 og det vil resultere i at du ikke bevæger dig. 
 */
 var move = key_right - key_left;
 /*
 Det der bliver gjort her er at indsætter vores  bevægelses hastighed altså (walksp = walkspeed) Vi gav variablen walksp = 4, og vi ved at når vi trykker
-key_right eller key_left får vi 1 eller -1. Jeg multiplicere vores move med variablen walksp. Så 1*4 = 4 pixels til højre og -1*4= -4 pixels til venstre.
+key_right eller key_left får vi 1 eller -1. vi multiplicere vores move med variablen walksp. Så 1*4 = 4 pixels til højre og -1*4= -4 pixels til venstre.
 */
 hsp = move * walksp;
 
@@ -78,7 +78,7 @@ if (place_meeting(x+hsp,y,obj_wall))
 	    x = x + sign(hsp);
 	}
 	/*
-	Jeg sætter hsp til 0 da der ikke er en grund til at rykke os mere, da vi ved at der skal til at ske en kollision.
+	vi sætter hsp til 0 da der ikke er en grund til at rykke os mere, da vi ved at der skal til at ske en kollision.
 	*/
 	hsp = 0;
 }	
@@ -87,7 +87,7 @@ x = x + hsp;
 
 
 /*
-Her laver jeg den vandrette kollision. Den vandrette er meget ens med den lodrette kollision, da man faktisk bare skal ændre på hsp til vsp (vandrette hastighed) samt ændre de x+, og placer det efter y+.
+Her laver vi den vandrette kollision. Den vandrette er meget ens med den lodrette kollision, da man faktisk bare skal ændre på hsp til vsp (vandrette hastighed) samt ændre de x+, og placer det efter y+.
 */
 if (place_meeting(x,y+vsp,obj_wall))
 {
@@ -103,11 +103,25 @@ if (place_meeting(x,y+vsp,obj_wall))
 y = y + vsp;
 
 
+<<<<<<< HEAD
 /*
 I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
 spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
 med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kunne tjekke om vi var på jorden så vi kunne hoppe.
 
+=======
+/*
+Her kommer et punkt der hedder Animation.
+Hvad vi gør her er, at vi har lavet en masse sprites. Spr_Player,PlayerJ,PlayerR Alle 3 sprites er en forskellig bevægelse. 
+Sprite_index betyder at vi tager en spesefik Sprite. Så det man ser med at vi laver et IF til et sign også VSP er at vi tager sprite 0 og 1, og sætter dem,
+til at den ved hvis vi falder skal de bruge falde sprite index 1 og hvis vi hopper skal den bruge den der ligner vi lige har sat af. 
+For Player of PlayerR Laver vi et ELSE det betyder at hvis if (!place_meeting(x,y+1,obj_wall)) Ikke passer så passer det under.
+*/
+
+/*
+Det vi kommer til her er noget som hedder Animation.
+if statementet bliver benyttet igen her da der bliver arbejdet med kollisions igen, 
+>>>>>>> 7bcd94354291bf3242fbbec5b1a1a5309ff86e7f
 */ 
 if (!place_meeting(x,y+1,obj_wall)) 
 {
@@ -158,6 +172,7 @@ else
 	    sprite_index = spr_playerR;
 	}	
 }
+<<<<<<< HEAD
 /*
 Det sidste vi mangler under animation er, så vi kigger den rigtige vej. Man kan jo ikke have at hvis man løber til højre, at man så kigger til venstre. 
 Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et spørgsmål. Vi bruger også noget der hedder, image_xscale der beslutter vores 
@@ -165,6 +180,10 @@ horisontale vægt.Hvis man sætter den til 1, ville der ikke være en ændring. 
 Det sjove er at hvis vi så lændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
 Så det vi gør er at vi siger at if (HVIS) hsp ikke er = 0,  til image_xscale = = sign(hsp), fordi sign giver tilbage et 1 hvis den er positiv og 0 hvis den er negativ. 
 Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre..
+=======
+/*Hvis vi nu satte vores image_speed til 1 ville han kikke den anden vej. Detter er bare hvilken vej player peger. Så det vi har gjort her
+Er at hvis vores HSP er vegativ vil det betyde vi går til vestre og hvis den er positiv bevæger vi os til højre.
+>>>>>>> 7bcd94354291bf3242fbbec5b1a1a5309ff86e7f
 */
 if (hsp != 0) image_xscale = sign(hsp);
 

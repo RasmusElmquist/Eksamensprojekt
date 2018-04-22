@@ -1,3 +1,4 @@
+// "Instance_destroy" Man bruger denne funktion, når man ønsker at "ødelægge" en givet placering
 with (other) 
 {
 	hp--;
