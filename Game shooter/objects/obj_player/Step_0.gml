@@ -103,7 +103,6 @@ if (place_meeting(x,y+vsp,obj_wall))
 y = y + vsp;
 
 
-<<<<<<< HEAD
 /*
 I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
 spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
@@ -172,7 +171,7 @@ else
 	    sprite_index = spr_playerR;
 	}	
 }
-<<<<<<< HEAD
+
 /*
 Det sidste vi mangler under animation er, så vi kigger den rigtige vej. Man kan jo ikke have at hvis man løber til højre, at man så kigger til venstre. 
 Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et spørgsmål. Vi bruger også noget der hedder, image_xscale der beslutter vores 
