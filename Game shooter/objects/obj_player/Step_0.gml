@@ -1,5 +1,4 @@
-/* I dette if statement bestemmes der hvilke knapper 
-der skal kospondere til den retning spilleren bevæger sig i.
+/* I dette if statement bestemmes der hvilke knapper der skal kospondere til den retning spilleren bevæger sig i.
 Hvad if statementet gør,er at det stiller gamemaker et spørgsmål, og hvis hvad der står inden for paranteserne er opfyldt køres statementet ellers kører else statementet.
 keyboard_check er til at benytte A & D tasterne
 vk_space fortæller koden at spacebar er til at hoppe
@@ -41,15 +40,14 @@ key_right eller key_left får vi 1 eller -1. vi multiplicere vores move med vari
 */
 hsp = move * walksp;
 
-//Det der sker her, er at vi kan bevæge os med tyndekraften (grv) "Så vi kan falde"
-
+//Det der sker her, er at vi kan bevæge os med tyndekraften (grv) så vi kan falde
 vsp = vsp + grv;
 
 /* 
 Her bestemmes der hvor højt spilleren skal hoppe når space trykkes.
 dette if statement 
+så hvis man står på jorden og der trykkes på space, vil du bevæge dig opad med en vsp(vertikal hastighed) på -7.
 */
-//Så hvis man står på jorden og du trykker på space, vil du bevæge dig opad med en vsp(vertikal hastighed) på -7.
 if (place_meeting(x,y+1,obj_wall)) && (key_jump)
 {
 vsp = -7;
@@ -57,9 +55,9 @@ vsp = -7;
 }
 
 
-/*
-Hvad placemeeting gør, er at den tjekker om der er en kollision altså et sammenstød mellem obj_player og obj_wall.
-*/
+
+//Hvad placemeeting gør, er at den tjekker om der er en kollision altså et sammenstød mellem obj_player og obj_wall.
+
 if (place_meeting(x+hsp,y,obj_wall))
 {
 	/*
@@ -103,68 +101,61 @@ if (place_meeting(x,y+vsp,obj_wall))
 y = y + vsp;
 
 /*
-I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
-spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
-med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kunne tjekke om vi var på jorden så vi kunne hoppe.
+I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder spr_playerJ.
+Så det vi gør er at bruge et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt, med kollisionen.
+Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kan tjekke om vi er på jorden så vi kan hoppe.
 */
 
 if (!place_meeting(x,y+1,obj_wall)) 
 {
 	/*
-	Her under skriver vi HVAD der sker hvis der ikke er en kollision med 1 pixel under os. Så det vi gør er at vi skriver, sprite_index. Når man skriver det, bliver
-	det grøndt og det betyder at det er en "ejendom" af vore objekt, det betyder at den fortæller hvilet sprite den skal bruge. Så hvad man skriver efter "=" er hvilket
+	Her skriver vi HVAD der sker hvis der ikke er en kollision med 1 pixel under os. Så det vi gør er at vi skriver, sprite_index. Når man skriver det, bliver
+	det grønt og det betyder at det er en "ejendom" af objektet, det betyder at den fortæller hvilet sprite den skal bruge. Så hvad man skriver efter "=" er hvilket
 	sprite den skal bruge, I dette tilfælde skal vi bruge spr_playerJ som er vores jump sprite. 
 	*/
    sprite_index = spr_playerJ;
+   
    /*
-   image_speed er hvor hurtigt skal vores animation være. I dette tilfælde vil vi ikke have den skal have en hastighed fordi så ville det se dumt ud når vi hopper,
+   image_speed er hvor hurtigt vores animation skal være. I dette tilfælde vil vi ikke have den skal have en hastighed fordi så ville det se unaturligt ud når der hoppes,
    at den skifter animation hurtigt, så vi vil bare vælge en af vores frames der skal vises, når vi hopper.   
    */
    image_speed = 0;
+   
    /*
-   Da det er sådan at, det er en animation der skal ske når vi er i luften, skal vi jo bruge en vertikal hastighed. Vi skal så bruge funktionen SIGN her. Vi bruger
-   SIGN fordi vi skal finde ud af om SIGN til vores variable vsp er større end 0, fordi hvis den er det giver det 1. Hvis det giver 1 betyder det vi bevæger os også 
-   vil vores image_index give 1 der med vil aniamtionen laves. Hvis SIGN vsp ikke er større end 0 vil det sige vi ikke bevæger os i en vertikal retning, og ingen 
-   animation skal bruges. Grunden til det hedder sprite 0 og 1, og ikke 1 og 2 er fordi.  image_index bliver brugt til hvilket billede der skal bruges, og sprite_index
-   bliver brugt til hvilket sprite der skal bruges.Else gør at hvis (sign(vsp) > 0) ikke passer vil den gøre image_index = 0 i stedet.
+   hvis obj_player bevæger sig lodret vil image_index = 1 og hvis obj_player er stående på jorden er image_index = 0.
    */
    if (sign(vsp) > 0) image_index = 1; else image_index = 0;   
 }
 else
 {
 	/*
-	Her under laver vi animationen for. når vi er på gulvet. Vi bruge vores else statement igen, Men med et stykke kode.
-	Det vi gør her er at hvis vores kode if (!place_meeting(x,y+1,obj_wall)) ikke bliver sandt, altså hvis vi ikke hopper, og det her gælder KUN hvis det ikke er
-	sandt.
-	Det under her betyder vi står på gulvet, og da det er en animation der skal køre skal vi have vores image_speed være sat til = 1.
-	
+	Her under laver vi animationen for. når vi i kontakt med jorden. her bruges else statementet igen, Men med et stykke kode.
+	Det vi gør her er at hvis vores kode if (!place_meeting(x,y+1,obj_wall)) ikke er sandt,(hvis der ikke hoppes).
+	Det betyder vi står på jorden, og da det er en animation der skal køre skal vi have vores image_speed være sat til = 1.
 	*/
     image_speed = 1;
-	/*
-	Vi lavet et if statement fordi vi vil tjekke om vores variabel hsp altså vores horisontal hastighed er = 0, og det skriver man op på den måde at, hvis du vil 
-	tjekke om noget er foreksempel 0 skal man lave 2 ==.
-	*/
+	
+	// her tjekkes der om den vandrette hastighed er = 0 
 	if (hsp == 0)
 	{
 		/*
-		Så hvis vores hsp er 0 vil vores sprite_index slå ind der er = spr_player. Vores spr_player er stickfiguren der står stille, og hvis hsp ikke er 0,
-		Har vi et else statement til sprite_index som har spr_playerR der, er vores løbe animation. 
+		hvis hsp = 0 bruges spriten spr_player
 		*/ 
 	sprite_index = spr_player;
 	}
     else
 	{
+		// eller konkluderer vi at obj_player er i bevægelse og bruger derfor spr_playerR
 	    sprite_index = spr_playerR;
 	}	
 }
 
 /*
-Det sidste vi mangler under animation er, så vi kigger den rigtige vej. Man kan jo ikke have at hvis man løber til højre, at man så kigger til venstre. 
-Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et spørgsmål. Vi bruger også noget der hedder, image_xscale der beslutter vores 
-horisontale vægt.Hvis man sætter den til 1, ville der ikke være en ændring. Men hvis vi ændre vores xscale til 2. Vil vores stickfigur blive tyk lige pludslig.
-Det sjove er at hvis vi så ændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
-Så det vi gør er at vi siger at if (HVIS) hsp ikke er = 0,  til image_xscale = = sign(hsp), fordi sign giver tilbage et 1 hvis den er positiv og 0 hvis den er negativ. 
-Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre.
+Dette sørger for at obj_player kigger den rigtige vej. Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et spørgsmål. 
+Vi bruger også noget der hedder, image_xscale der beslutter vores vandrette vægt.
+Hvis man sætter den til 1, ville der ikke være en ændring. Men hvis vi ændre vores xscale til 2. Vil vores stickfigur blive tykkere.
+Det sjove er at hvis vi så ændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det rotere spriten.
+Så det vi gør er at vi siger at hvis hsp ikke er = 0, kigges der mod højre og hvis det er = -1 kigges der mod venstre. 
 */
 if (hsp != 0) image_xscale = sign(hsp);
 
