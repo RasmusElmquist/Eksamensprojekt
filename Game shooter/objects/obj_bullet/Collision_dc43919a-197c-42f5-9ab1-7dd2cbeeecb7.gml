@@ -1,8 +1,7 @@
 /*
 Vi starter med et with statement til other, da vi har et objekt, der skal kunne
-kollidere, med et andet objekt. Other gør at vi har en insane vi kollidere med. 
-Other er en funktion er siger, at vi har noget vi skal kunne komme i kontakt med, 
-så det ikke kollidere med en masse andre ting, min kun den spesifikke obj_enemy.
+kolliderer, med et andet objekt. Other er en funktion er siger, at vi har noget vi skal kunne komme i kontakt med, 
+så det ikke kolliderer med en masse andre ting, men kun den specifikke obj_enemy.
 */
 with (other) 
 {
