@@ -22,7 +22,7 @@ if (place_meeting(x,y+vsp,obj_wall))
 }	
 y = y + vsp;
 
-// "spirte_index" er sådan set bare den funktion som indlæser det givet "sprite" altså "spr_enemyJ" i dette tilfælde
+// "spirte_index" er en funktion som indlæser det givet "sprite" altså "spr_enemyJ" i dette tilfælde
 // "Image_speed" Denne variable bestemmer sådan set bare hvilken hastighed Gamemaker skal rotere mellem de givede billeder.
 // Altså dette hjælper med at skabe en animation.
 if (!place_meeting(x,y+1,obj_wall)) 
