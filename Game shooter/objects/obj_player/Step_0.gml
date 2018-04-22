@@ -164,7 +164,7 @@ Det gør man ved at vi igen bruger et if statement, at vi stiller Game maker et 
 horisontale vægt.Hvis man sætter den til 1, ville der ikke være en ændring. Men hvis vi ændre vores xscale til 2. Vil vores stickfigur blive tyk lige pludslig.
 Det sjove er at hvis vi så lændre xscale til -1, vil han kigge den anden vej. Altså mod venstre, så det horisontalflipper vores sprite.
 Så det vi gør er at vi siger at if (HVIS) hsp ikke er = 0,  til image_xscale = = sign(hsp), fordi sign giver tilbage et 1 hvis den er positiv og 0 hvis den er negativ. 
-Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre.
+Hvis sign er 1 vil vi kigge mod højre og hvis den er 0 vil vi kigge til venstre..
 */
 if (hsp != 0) image_xscale = sign(hsp);
 
