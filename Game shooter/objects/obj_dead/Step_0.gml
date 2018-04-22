@@ -1,3 +1,7 @@
+/*her har vi copy pasted koden fra  obj_enemy's step event og tilføjet en if statement 
+der tjekker efter bevægelse hos de døde tændstiks figurer. 
+*/
+
 if (done == 0)
 {
 	vsp = vsp + grv;
