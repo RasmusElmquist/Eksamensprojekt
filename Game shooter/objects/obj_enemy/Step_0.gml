@@ -22,9 +22,11 @@ if (place_meeting(x,y+vsp,obj_wall))
 }	
 y = y + vsp;
 
-// "spirte_index" er sådan set bare den funktion som indlæser det givet "sprite" altså "spr_enemyJ" i dette tilfælde
-// "Image_speed" Denne variable bestemmer sådan set bare hvilken hastighed Gamemaker skal rotere mellem de givede billeder.
-// Altså dette hjælper med at skabe en animation.
+/* "spirte_index" er sådan set bare den funktion som indlæser det givet "sprite" altså "spr_enemyJ" i dette tilfælde
+ "Image_speed" Denne variable bestemmer sådan set bare hvilken hastighed Gamemaker skal rotere mellem de givede billeder.
+ Altså dette hjælper med at skabe en animation.
+ */
+
 if (!place_meeting(x,y+1,obj_wall)) 
 {
    sprite_index = spr_enemyJ;
@@ -43,8 +45,9 @@ else
 	    sprite_index = spr_enemyR;
 	}	
 }
-// "Image_xscale" Denne værdi angiver den vandrette skalring, som er blevet andvendt på dit sprite
-// Som er blevet tildelt til spirtes nuværende placering.
+/*"Image_xscale" Denne værdi angiver den vandrette skalring, som er blevet andvendt på dit sprite
+Som er blevet tildelt til spirtes nuværende placering.
+*/
 
 if (hsp != 0) image_xscale = sign(hsp);
 
