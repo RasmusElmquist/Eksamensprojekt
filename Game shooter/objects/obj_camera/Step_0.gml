@@ -9,7 +9,8 @@ if (instance_exists(follow))
 }
 
 
-/* Dette gør så kameraet følger spilleren. 
+/* 
+Dette gør så kameraet følger spilleren. 
 Det giver spilleren af at kameraet bevæger sig pænt og ikke i en masse små bevægelser.
 */
 x += (xTo - x) / 25;

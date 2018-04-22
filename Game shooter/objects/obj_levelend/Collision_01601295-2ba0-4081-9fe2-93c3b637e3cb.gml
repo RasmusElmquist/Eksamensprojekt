@@ -1,6 +1,6 @@
 /*
 dette tjekker om playeren er inde i trigger zonen
-Hvis man er, mister spilleren kontrollen over så begynder transition til lvl 2. 
+Hvis man er, mister spilleren kontrollen så begynder transition til det næste rum. 
 */
 with (obj_player)
 {	
