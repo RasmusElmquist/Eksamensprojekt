@@ -22,7 +22,7 @@ if (mode!= TRANS_MODE.OFF)
 		*/
 		switch (mode)
 		{
-			/* en case er ligesom if statementet
+			/* en case er ligesom et if statementet
 			hvis mode = TRANS_MODE.INTRO så kører den dette specifikke case.
 			*/
 			case TRANS_MODE.INTRO:
