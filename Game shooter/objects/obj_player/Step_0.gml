@@ -110,6 +110,12 @@ med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vo
 
 =======
 /*
+I animation har vi lavet endnu et if statement. Det vi bruger If statementet til er at vi skal finde ud af om vi er i luften eller ej. når vi bruger spritet der hedder
+spr_playerJ.Så det vi gør er at vi lavet et place_meeting igen MEN vi sætter et "!" foran place_meeting da det er for når vi IKKE står på jorden, altså er i kontakt,
+med kollisionen. Ellers er (x,y+1,obj_wall) præcis det samme som det andet i vores Calculate movement altså så vi kunne tjekke om vi var på jorden så vi kunne hoppe.
+
+=======
+/*
 Her kommer et punkt der hedder Animation.
 Hvad vi gør her er, at vi har lavet en masse sprites. Spr_Player,PlayerJ,PlayerR Alle 3 sprites er en forskellig bevægelse. 
 Sprite_index betyder at vi tager en spesefik Sprite. Så det man ser med at vi laver et IF til et sign også VSP er at vi tager sprite 0 og 1, og sætter dem,
